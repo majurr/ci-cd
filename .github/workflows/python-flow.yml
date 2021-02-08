@@ -36,15 +36,11 @@ jobs:
     - name: Testes pytest
       run: |
         pytest
-    
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Executa comandos SSH
-      - uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: whoami
+    - name: Deploy SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
