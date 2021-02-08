@@ -36,3 +36,9 @@ jobs:
     - name: Testes pytest
       run: |
         pytest
+    - name: Deploy Server
+      with:
+        ref: 'refs/heads/release/snapshot'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
