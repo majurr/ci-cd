@@ -33,9 +33,6 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # mostra aviso dos erros com tamanho máximo da linha de 127 caracterers, default do editor github
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Levanta API
-      run: |
-        uvicorn api:app --port 8000 --reload
     - name: Testes pytest
       run: |
         pytest
