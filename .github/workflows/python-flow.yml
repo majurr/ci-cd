@@ -37,8 +37,15 @@ jobs:
       run: |
         pytest
     - name: Deploy Server
-      with:
-        ref: 'refs/heads/release/snapshot'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+    
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executa comandos SSH
+      - uses: appleboy/ssh-action@min
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: whoami
