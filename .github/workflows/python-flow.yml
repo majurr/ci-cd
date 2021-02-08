@@ -22,11 +22,17 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Instalando dependências
       run: |
         python -m pip install --upgrade pip
         python -m pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Executa comando python
+    - name: Link com Flake8
       run: |
-        python -c "import sys; print(sys.version)"
+        # quebra CI se erros de sintaxe forem encontrados
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # mostra aviso dos erros com tamanho máximo da linha de 127 caracterers, default do editor github
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Testes pytest
+      run: |
+        pytest
