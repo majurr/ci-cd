@@ -27,6 +27,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Exibir mensagem
+    - name: Executa comando python
       run: |
-        uvicorn api:app
+        python -c "import sys; print(sys.version)"
