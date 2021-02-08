@@ -36,7 +36,6 @@ jobs:
     - name: Testes pytest
       run: |
         pytest
-    - name: Deploy Server
     
   deploy:
     runs-on: ubuntu-latest
