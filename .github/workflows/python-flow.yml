@@ -45,5 +45,5 @@ jobs:
         privateKey: ${{ secrets.PRIVATE_KEY }}
         debug: false
         command: |
-          whoami
-          hostname
+          mkdir /home/ci-cd
+          git clone https://github.com/mjhunior/ci-cd.git
