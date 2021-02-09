@@ -46,4 +46,5 @@ jobs:
         debug: false
         command: |
           mkdir /home/ci-cd
+          cd /home/ci-cd
           git clone https://github.com/mjhunior/ci-cd.git
