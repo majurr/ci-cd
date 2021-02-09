@@ -37,12 +37,13 @@ jobs:
       run: |
         pytest
     - name: Deploy SSH
-      uses: appleboy/ssh-action@master
+      uses: JimCronqvist/action-ssh@master
+      env:
+        NAME: "pi"
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
+        hosts: 'pi@192.168.1.114'
+        privateKey: ${{ secrets.PRIVATE_KEY }}
+        debug: false
+        command: |
           whoami
           hostname
