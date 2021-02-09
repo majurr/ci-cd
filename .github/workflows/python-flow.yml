@@ -47,4 +47,3 @@ jobs:
         command: |
           whoami
           hostname
-          cd /home/pi/ci-cd && git pull
