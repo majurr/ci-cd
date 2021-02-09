@@ -39,9 +39,9 @@ jobs:
     - name: Deploy SSH
       uses: JimCronqvist/action-ssh@master
       env:
-        NAME: "pi"
+        NAME: "root"
       with:
-        hosts: 'pi@192.168.1.114'
+        hosts: 'root@iago.gopontoaponto.com'
         privateKey: ${{ secrets.PRIVATE_KEY }}
         debug: false
         command: |
